@@ -81,7 +81,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح">
+    <div class="toggle" aria-label="Cambiar a barra de navegación">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -110,12 +110,12 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Inicio</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>الأرشيفات</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archivo</a>
 
   </li>
   </ul>
@@ -145,6 +145,64 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="cn">
+    <link itemprop="mainEntityOfPage" href="https://coder-mario.github.io/2024/06/11/nginx-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mario">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随便写写">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/11/nginx-1/" class="post-title-link" itemprop="url">nginx</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Publicado el</span>
+              
+
+              <time title="Creado por: 2024-06-11 09:00:50 / Modificado por: 09:01:06" itemprop="dateCreated datePublished" datetime="2024-06-11T09:00:50+08:00">2024-06-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       20001;</span><br><span class="line">    server_name  127.0.0.1;</span><br><span class="line">    </span><br><span class="line">    location /weba &#123;</span><br><span class="line">        alias D:\02_Environment\02_nginx\html\weba;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       20002;</span><br><span class="line">    server_name  127.0.0.1;</span><br><span class="line">    # 设置同源加载</span><br><span class="line">    add_header  X-Frame-Options SAMEORIGIN;</span><br><span class="line">    </span><br><span class="line">    location /webb &#123;</span><br><span class="line">        # 方法一：修改此站点的 X-Frame-Options</span><br><span class="line">        add_header  X-Frame-Options ALLOWALL;</span><br><span class="line"></span><br><span class="line">        alias D:\02_Environment\02_nginx\html\webb;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       20003;</span><br><span class="line">    server_name  127.0.0.1;</span><br><span class="line">    add_header  X-Frame-Options SAMEORIGIN;</span><br><span class="line">    </span><br><span class="line">    location /webc &#123;</span><br><span class="line">        # 方法一：修改此站点的 X-Frame-Options</span><br><span class="line">        add_header  X-Frame-Options DENY;</span><br><span class="line"></span><br><span class="line">        alias D:\02_Environment\02_nginx\html\webc;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       20004;</span><br><span class="line">    server_name  127.0.0.1;</span><br><span class="line">    add_header  X-Frame-Options SAMEORIGIN;</span><br><span class="line"> </span><br><span class="line">    location /webc &#123;</span><br><span class="line">        add_header  X-Frame-Options DENY;</span><br><span class="line">        # 方法二：修改此站点的Content-Security-Policy的frame-ancestors，优先级高于X-Frame-Options，如果多级嵌套，需要把所有站点写上</span><br><span class="line">        add_header Content-Security-Policy &quot;frame-ancestors &#x27;self&#x27; 127.0.0.1:20001 127.0.0.1:20002&quot;;</span><br><span class="line"></span><br><span class="line">        alias D:\02_Environment\02_nginx\html\webc;</span><br><span class="line">        index index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="cn">
     <link itemprop="mainEntityOfPage" href="https://coder-mario.github.io/2024/06/06/Java-lombok/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -167,10 +225,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Publicado el</span>
               
 
-              <time title="أُنشأ: 2024-06-06 09:17:46 / عُدل: 09:16:27" itemprop="dateCreated datePublished" datetime="2024-06-06T09:17:46+08:00">2024-06-06</time>
+              <time title="Creado por: 2024-06-06 09:17:46 / Modificado por: 09:16:27" itemprop="dateCreated datePublished" datetime="2024-06-06T09:17:46+08:00">2024-06-06</time>
             </span>
 
           
@@ -235,10 +293,10 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Publicado el</span>
               
 
-              <time title="أُنشأ: 2024-06-06 09:17:46 / عُدل: 09:16:27" itemprop="dateCreated datePublished" datetime="2024-06-06T09:17:46+08:00">2024-06-06</time>
+              <time title="Creado por: 2024-06-06 09:17:46 / Modificado por: 09:16:27" itemprop="dateCreated datePublished" datetime="2024-06-06T09:17:46+08:00">2024-06-06</time>
             </span>
 
           
@@ -307,16 +365,16 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">نُشر في</span>
+              <span class="post-meta-item-text">Publicado el</span>
 
-              <time title="أُنشأ: 2023-03-16 07:41:47" itemprop="dateCreated datePublished" datetime="2023-03-16T07:41:47+08:00">2023-03-16</time>
+              <time title="Creado por: 2023-03-16 07:41:47" itemprop="dateCreated datePublished" datetime="2023-03-16T07:41:47+08:00">2023-03-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">عُدل في</span>
-                <time title="عُدل: 2024-06-06 09:16:27" itemprop="dateModified" datetime="2024-06-06T09:16:27+08:00">2024-06-06</time>
+                <span class="post-meta-item-text">Editado el</span>
+                <time title="Modificado por: 2024-06-06 09:16:27" itemprop="dateModified" datetime="2024-06-06T09:16:27+08:00">2024-06-06</time>
               </span>
 
           
@@ -390,10 +448,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          المحتويات
+          Tabla de contenidos
         </li>
         <li class="sidebar-nav-overview">
-          عام
+          Inicio
         </li>
       </ul>
 
@@ -412,8 +470,8 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
-          <span class="site-state-item-name">المقالات</span>
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">entradas</span>
         </a>
       </div>
   </nav>
